@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Social Media</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="/">Ethical Social Media</a>
+        </h1>
+        <nav>
+            {{#if loggedIn}}
+            <button id="logout" class="btn-no-style">logout</button>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+        </nav>
+    </header>
+
+    {{{body}}}
+
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
