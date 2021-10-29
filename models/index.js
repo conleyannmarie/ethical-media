@@ -11,7 +11,15 @@ People.hasMany(Category, {
     foreignKey: ''
 })
 
+People.belongsToMany(Rating, {
+    through: Category,
+    as: '',
+    foreignKey: ''
+})
+
+// People.belongsToMany(Category {
+//     through: 
+// })
 
 
-
-module.exports = { User };
+module.exports = { User, Rating, Category, People };
