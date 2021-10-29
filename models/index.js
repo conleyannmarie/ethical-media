@@ -29,7 +29,7 @@ Rating.belongTo(User, {
 })
 
 User.hasMany(Rating, {
-    foreignKey: 'rating_id'
+    foreignKey: 'user_id'
 })
 
 
