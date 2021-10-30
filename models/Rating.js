@@ -1,21 +1,20 @@
 const { Model, DataTypes } = require('sequelize')
-const { model } = require('../config/connection')
 const sequelize = require('../config/connection')
 
-class Rating extends Model {}
+class Rating extends Model { }
 
 Rating.init(
-{
-    id: { 
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
 
-    },
+        },
         rated_by: {
             type: DataTypes.INTEGER,
-            allowNull: false, 
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
@@ -52,7 +51,7 @@ Rating.init(
         underscored: true,
         modelName: 'rating'
     }
-    
+
 );
 
-model.exports = Rating;
+module.exports = Rating;
