@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 //Adds a Rating
 router.post('/', (req, res) => {
     Rating.create({
+        //change rated_by to session user
         rated_by: req.body.rated_by,
         rating_for: req.body.rating_for,
         rating: req.body.rating,
