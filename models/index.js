@@ -12,7 +12,7 @@ User.hasMany(Category, {
 })
 
 // Category.hasOne(Rating, {
-//     foreignKey: 'category_id'
+//     foreignKey: 'rating_for'
 // })
 
 
