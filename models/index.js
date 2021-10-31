@@ -11,9 +11,9 @@ User.hasMany(Category, {
     foreignKey: 'user_id'
 })
 
-// Category.hasOne(Rating, {
-//     foreignKey: 'rating_id'
-// })
+Category.hasOne(Rating, {
+    foreignKey: 'rating_id'
+})
 
 
 Rating.belongsTo(User, {
