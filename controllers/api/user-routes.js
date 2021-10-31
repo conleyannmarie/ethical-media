@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Rating,  Category } = require('../../models');
+const { User, Rating, Category } = require('../../models');
 const bcrypt = require('bcrypt')
 
 //returns all users
@@ -14,11 +14,34 @@ router.get('/', (req, res) => {
         });
 });
 
+//Get User by id 
+router.get('/:id', (req, res) => {
+    User.findOne({
+        attributes: { exclude: ['password'] },
+        where: {
+            id: req.params.id
+        },
+        // include: [
+        //     {
+        //         // include avatar here & possibly a user-bio
+
+        //     }
+        // ]
+
+    })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
+
 //Adds a User
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        overall: req.body.overall
     })
 
         .then(dbUserData => {

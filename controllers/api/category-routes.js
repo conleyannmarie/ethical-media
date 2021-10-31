@@ -26,6 +26,8 @@ router.get('/', (req, res) => {
         });
 });
 
+
+
 //Adds a Category
 router.post('/', (req, res) => {
     Category.create({

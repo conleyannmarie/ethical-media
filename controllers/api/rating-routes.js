@@ -1,25 +1,10 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const { Rating, User, Category } = require('../../models');
-=======
 const { Rating, User } = require('../../models');
->>>>>>> be182ca6ad7081c6d983a6b020c49632247321ff
 
 //gets all Ratings
 router.get('/', (req, res) => {
     Rating.findAll({
 
-<<<<<<< HEAD
-        attributes: ['rated_by', 'rating_for', 'rating', 'about_rating'],
-        include: [{
-            model: Category,
-            attributes: ['name']
-        },
-        {
-            model: User,
-            attributes: ['username']
-        }]
-=======
         attributes: [
             'rated_by',
             'rated_for',
@@ -32,7 +17,6 @@ router.get('/', (req, res) => {
                 attributes: ['username']
             }
         ]
->>>>>>> be182ca6ad7081c6d983a6b020c49632247321ff
     })
         .then(dbRatingData => res.json(dbRatingData))
         .catch(err => {
