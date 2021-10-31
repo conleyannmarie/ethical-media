@@ -1,14 +1,23 @@
 const router = require('express').Router();
-const { Category,User } = require('../../models');
+const { Category, User } = require('../../models');
 
 //gets all categories
 router.get('/', (req, res) => {
     Category.findAll({
-        attributes: ['id','name','user_id'],
-        include: [{
-            model:User,
-            attributes: ['username']
-        }]
+        attributes:
+            [
+                'id',
+                'name',
+                'user_id'
+            ],
+        include: [
+            {
+                model: User,
+                attributes: [
+                    'username'
+                ]
+            }
+        ]
     })
         .then(dbCategoryData => res.json(dbCategoryData))
         .catch(err => {

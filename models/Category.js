@@ -16,7 +16,7 @@ Category.init(
       allowNull: false,
       validate: {
         len: [1]
-      }
+      } 
     },
     user_id: {
       type: DataTypes.INTEGER,
