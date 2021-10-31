@@ -21,12 +21,18 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        // include: [
-        //     {
-        //         // include avatar here & possibly a user-bio
+        include: [
+            {
+                model: Category,
+                attributes: ['name'],
+                include: {
+                    model: Rating,
+                    attributes: ['rating']
+                }
+                // include avatar here & possibly a user-bio
 
-        //     }
-        // ]
+            }
+        ]
 
     })
         .then(dbUserData => res.json(dbUserData))
