@@ -1,13 +1,17 @@
 const router = require('express').Router();
-const { Rating,User } = require('../../models');
+const { Rating, User, Category } = require('../../models');
 
 //gets all Ratings
 router.get('/', (req, res) => {
     Rating.findAll({
 
-        attributes: ['rated_by',"rated_for",'rating','about_rating'],
+        attributes: ['rated_by', 'rating_for', 'rating', 'about_rating'],
         include: [{
-            model:User,
+            model: Category,
+            attributes: ['name']
+        },
+        {
+            model: User,
             attributes: ['username']
         }]
     })
