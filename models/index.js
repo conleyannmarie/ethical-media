@@ -3,27 +3,27 @@ const Rating = require('./Rating');
 const Category = require('./Category');
 
 
-Category.belongsTo(User,{
+Category.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
-User.hasMany(Category,{
-    foreignKey:'user_id'
+User.hasMany(Category, {
+    foreignKey: 'user_id'
 })
 
-// Category.belongsTo(Rating, {
+// Category.hasOne(Rating, {
 //     foreignKey: 'rating_id'
 // })
 
 
-Rating.belongsTo(User,{
+Rating.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
-User.hasMany(Rating,{
+User.hasMany(Rating, {
     foreignKey: 'user_id'
 })
 
 
 
-module.exports = {User, Category, Rating };
+module.exports = { User, Category, Rating };
