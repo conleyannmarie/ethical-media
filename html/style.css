@@ -1,13 +1,3 @@
 * {
   box-sizing: border-box;
 }
-
-/* Star Rating */
-.rating {
-  width: 180px;
-}
-
-.rating-star {
-  cursor: pointer;
-  color: #dabd18b2;
-}
