@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Rating, User } = require('../../models');
+const { Rating, User, Category } = require('../../models');
 
 //gets all Ratings
 router.get('/', (req, res) => {
@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 
         attributes: [
             'rated_by',
-            'rated_for',
+            'rating_for',
             'rating',
             'about_rating'
         ],
@@ -15,7 +15,12 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
-            }
+            },
+            {
+                model: Category,
+                attributes: ['name']
+            },
+
         ]
     })
         .then(dbRatingData => res.json(dbRatingData))
