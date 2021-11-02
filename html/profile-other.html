@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./secondary-style.css" />
+    <title>Other Category</title>
+    <script
+      src="https://kit.fontawesome.com/7f3eced345.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Navigation-->
+    <header>
+      <h1>Other</h1>
+    </header>
+    <!--Navigation End-->
+
+    <!--Other Star Rating-->
+    <section>
+      <!--Profile-->
+      <div>
+        <article>
+          <img
+            src="https://avataaars.io/?avatarStyle=Circle&topType=NoHair&accessoriesType=Blank&facialHairType=BeardMajestic&facialHairColor=Red&clotheType=Hoodie&clotheColor=PastelGreen&eyeType=Default&eyebrowType=RaisedExcited&mouthType=Default&skinColor=Light"
+          />
+          <div>
+            <form action="<!--where we want to send the info-->">
+              <fieldset>
+                <legend>Other Rating:</legend>
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" /><br /><br />
+                <label for="other-message">Comment:</label>
+                <textarea id="other-message" placeholder="Comment"></textarea
+                ><br /><br />
+
+                <div class="star-rating">
+                  <div class="thanks-msg">Rating has been submitted !!!</div>
+                  <div class="star-input">
+                    <input type="radio" name="rating" id="rating-5" />
+                    <label for="rating-5" class="fas fa-star"></label>
+                    <input type="radio" name="rating" id="rating-4" />
+                    <label for="rating-4" class="fas fa-star"></label>
+                    <input type="radio" name="rating" id="rating-3" />
+                    <label for="rating-3" class="fas fa-star"></label>
+                    <input type="radio" name="rating" id="rating-2" />
+                    <label for="rating-2" class="fas fa-star"></label>
+                    <input type="radio" name="rating" id="rating-1" />
+                    <label for="rating-1" class="fas fa-star"></label>
+
+                    <!-- Rating Submit Form -->
+                    <form>
+                      <span class="rating-reaction"></span>
+                      <button type="submit" class="submit-rating">
+                        Submit
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!--Other Star Rating End-->
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -3,6 +3,7 @@ const Rating = require('./Rating');
 const Category = require('./Category');
 const People = require('./People');
 
+<<<<<<< HEAD
 // People.hasMany(Rating, {
 //     foreignKey: ''
 // })
@@ -37,13 +38,36 @@ User.hasMany(Rating, {
 })
 
 
+=======
+// // People.hasMany(Rating, {
+// //     foreignKey: ''
+// // })
+>>>>>>> b007f683953fb10b993bb03f2fd818b456e8675f
+
+// Category.belongsTo(Rating, {
+//     foreignKey: 'rating_id'
+// })
+
+// Category.hasMany(Rating, {
+//     foreignKey: 'category_id'
+// })
+
+// Category.belongsTo(People, {
+//     foreignKey: 'people_id'
+// })
+
+// People.hasMany(Category, {
+//     foreignKey: 'people_id'
+// })
 
 
+// Rating.belongsTo(User, {
+//     foreignKey: 'user_id'
+// })
+
+// User.hasMany(Rating, {
+//     foreignKey: 'user_id'
+// })
 
 
-
-
-
-
-
-module.exports = { User, Rating, Category, People };
+module.exports = {User, Category, People, Rating };

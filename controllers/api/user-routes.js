@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { User, Rating, Person, Category} = require('../../models');
 const bcrypt = require('bcrypt')
 
 //returns all users
