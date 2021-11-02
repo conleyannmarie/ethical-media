@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize')
+const { model } = require('../config/connection')
 const sequelize = require('../config/connection')
 
 class Rating extends Model { }
@@ -20,6 +21,8 @@ Rating.init(
                 key: 'id'
             }
         },
+
+        // I belive it is referencing a parent table while this isn't mentioned in said table...?
         rating_for: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -42,7 +45,6 @@ Rating.init(
         about_rating: {
             type: DataTypes.STRING,
             allowNull: false,
-
         }
     },
     {

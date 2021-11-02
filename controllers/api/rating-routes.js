@@ -1,9 +1,23 @@
 const router = require('express').Router();
-const { Rating } = require('../../models');
+const { Rating, User } = require('../../models');
 
 //gets all Ratings
 router.get('/', (req, res) => {
-    Rating.findAll()
+    Rating.findAll({
+
+        attributes: [
+            'rated_by',
+            'rated_for',
+            'rating',
+            'about_rating'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
         .then(dbRatingData => res.json(dbRatingData))
         .catch(err => {
             console.log(err);
@@ -14,6 +28,7 @@ router.get('/', (req, res) => {
 //Adds a Rating
 router.post('/', (req, res) => {
     Rating.create({
+        //change rated_by to session user
         rated_by: req.body.rated_by,
         rating_for: req.body.rating_for,
         rating: req.body.rating,

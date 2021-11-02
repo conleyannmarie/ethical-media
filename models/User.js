@@ -26,7 +26,11 @@ User.init(
             validate: {
                 len: [3]
             }
-        }
+        },
+        overall: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
     }, {
     hooks: {
         // set up beforeCreate lifecycle "hook" functionality

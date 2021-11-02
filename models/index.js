@@ -1,36 +1,32 @@
 const User = require('./User');
 const Rating = require('./Rating');
 const Category = require('./Category');
-const People = require('./People');
-
-// // People.hasMany(Rating, {
-// //     foreignKey: ''
-// // })
-
-// Category.belongsTo(Rating, {
-//     foreignKey: 'rating_id'
-// })
-
-// Category.hasMany(Rating, {
-//     foreignKey: 'category_id'
-// })
-
-// Category.belongsTo(People, {
-//     foreignKey: 'people_id'
-// })
-
-// People.hasMany(Category, {
-//     foreignKey: 'people_id'
-// })
 
 
-// Rating.belongsTo(User, {
-//     foreignKey: 'user_id'
-// })
+Category.belongsTo(User, {
+    foreignKey: 'user_id'
+})
 
-// User.hasMany(Rating, {
-//     foreignKey: 'user_id'
-// })
+User.hasMany(Category, {
+    foreignKey: 'user_id'
+})
+
+User.hasMany(Rating, {
+    foreignKey: 'rated_by'
+})
+
+Rating.belongsTo(User, {
+    foreignKey: 'rated_by'
+});
+
+Rating.belongsTo(Category, {
+    foreignKey: 'rating_for'
+})
+
+Category.hasMany(Rating, {
+    foreignKey: 'rating_for'
+})
 
 
-module.exports = {User, Category, People, Rating };
+
+module.exports = { User, Category, Rating };
