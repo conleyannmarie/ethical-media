@@ -32,7 +32,7 @@
 }
 
 .star-rating {
-  margin: 50px auto;
+  /* margin: 50px auto; */
   display: table;
   width: 350px;
 }
