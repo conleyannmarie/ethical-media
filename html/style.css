@@ -1,3 +1,72 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+header {
+      padding: 20px 35px;
+      background-image: linear-gradient(to right,#f72585, #b5179e, #7209b7, #560bad, #480cab, #380ca3, #3f37c9, #4361ee, #4895ef, #4cc9f0);
+      display: flex;
+      justify-content: space-between;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: 80%;
+      z-index: 9999;
+}
+
+header h1 {
+  font-weight: bolder;
+  margin: 0;
+  font-size: 36px;
+  color:#f72585;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header nav {
+  margin: 7px 0;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+  padding: 10px 15px;
+  font-weight: lighter;
+  font-size: 1.55vw;
+}
+
+/* header nav ul li a:hover {
+  background: rgba(83, 9, 50, 0.589);
+  color: ##f72585;
+  border-radius: 15px;
+  text-shadow: none;
+} */
+
+a.nav-link:link {
+  color: #f72585;
+ text-decoration: none;
+}
+
+a.nav-link:visited {
+  color: #f72585;
+ text-decoration: none;
+}
+
+a.nav-link:hover {
+  color: #f72585;
+ text-decoration: none;
+}
+
+a.nav-link:active {
+  color: #f72585;
+ text-decoration: none;
+}
