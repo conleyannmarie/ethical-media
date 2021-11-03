@@ -1,6 +1,12 @@
+// Submit button
 const btn = document.querySelector(".submit-rating");
+
+// Thanksmsg
 const thanksmsg = document.querySelector(".thanks-msg");
+
+//Star rating
 const starRating = document.querySelector(".star-input");
+
 // Success msg show/hide
 btn.onclick = () => {
   starRating.style.display = "none";
