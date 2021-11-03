@@ -17,10 +17,15 @@ router.get('/', (req, res) => {
 //Get User by id 
 router.get('/:id', (req, res) => {
     User.findOne({
-        attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         },
+        attributes:
+        //[
+            { exclude: ['password'] },
+        //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'overall_rating']
+        // ],
+
         include: [
             {
                 model: Category,
@@ -35,7 +40,21 @@ router.get('/:id', (req, res) => {
         ]
 
     })
-        .then(dbUserData => res.json(dbUserData))
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
+        }
+        
+            var total_rating = 0
+            for(var i = 0; i<dbUserData.categories.length;i++){
+               total_rating +=dbUserData.categories[i].ratings[0].rating
+            }
+            var average_rating = total_rating/dbUserData.categories.length
+            console.log(average_rating)
+      
+        res.json(dbUserData);
+    })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

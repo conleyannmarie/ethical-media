@@ -26,6 +26,7 @@ Rating.init(
         rating_for: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            unique: true,
             references: {
                 model: 'category',
                 key: 'id'
