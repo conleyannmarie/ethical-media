@@ -4,15 +4,17 @@
 
 body {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-image: linear-gradient(#f72585, #b5179e, #7209b7, #560bad, #480cab, #380ca3, #3f37c9, #4361ee, #4895ef, #4cc9f0);
+  background-image: linear-gradient(#3f37c9, #4361ee, #4895ef, #4cc9f0);
 }
+
+/* fonts: #f72585, #b5179e, #7209b7, #560bad, #480cab, #380ca3, */
 /* Header styles */
 header {
       padding: 20px 35px;
       display: flex;
       justify-content: space-between;
-      position: sticky;
-      position: -webkit-sticky;
+      /* position: sticky;
+      position: -webkit-sticky; */
       top: 0;
       background-size: cover;
       background-attachment: fixed;
@@ -119,4 +121,19 @@ button[type="submit"]{
 }
 input[type="text"]:focus{
   outline:0;
+}
+
+.profiles {
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profiles h2 {
+  font-weight: none;
+  margin: 0;
+  font-size: 15px;
+  color:#560bad,;
+
 }
