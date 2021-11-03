@@ -76,10 +76,7 @@
   text-transform: capitalize;
 }
 
-.star-rating form .submit-rating,
-.submit-rating-love,
-.submit-rating-friendships,
-.submit-rating-family {
+.star-rating form .submit-rating {
   border: none;
   outline: none;
   /*submit button background here if we want */
@@ -91,10 +88,7 @@
   float: right;
 }
 
-form .submit-rating:hover,
-.submit-rating-love:hover,
-.submit-rating-friendships:hover,
-.submit-rating-family:hover {
+form .submit-rating:hover {
   background-color: #333;
 }
 /* User Ratings End */
