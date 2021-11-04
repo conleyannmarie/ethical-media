@@ -28,6 +28,10 @@ header {
   margin: auto;
 }
 
+.logo {
+  width:50%;
+}
+
 header nav {
   margin: 7px 0;
 }
