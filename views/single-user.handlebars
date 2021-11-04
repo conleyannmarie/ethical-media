@@ -1,46 +1,23 @@
-<<<<<<< HEAD
 <div>
-    {{#each this}}
+  {{#each this}}
     <div class="row">
-        <div class="col-md-12">
-            <h2>{{username}}</h2>
-            <h2>{{overall}}</h2>
-            {{#categories}}
-            <p>{{name}}</p>
-            {{#each ratings}}
+      <div class="col-md-12">
+        {{! Main information of the page }}
+        <h2>{{username}}</h2>
+        <h2>{{overall}}</h2>
+
+        {{! This is what would go in a card }}
+        {{#categories}}
+          <p>{{name}}</p>
+          {{#each ratings}}
+            {{! rating for category }}
             <p>{{rating}}</p>
+            {{! comment about the rating }}
             <p>{{about_rating}}</p>
-            {{/each}}
-            {{/categories}}
-        </div>
+          {{/each}}
+        {{/categories}}
+
+      </div>
     </div>
-    {{/each}}
+  {{/each}}
 </div>
-
-<script src="/javascript/script.js"></script>
-=======
-  <div>
-        {{#each this}}
-            <div class="row">
-                <div class="col-md-12">
-                    {{!-- Main information of the page --}}
-                    <h2>{{username}}</h2>
-                    <h2>{{overall}}</h2>
-                        
-                        {{!-- This is what would go in a card --}}
-                        {{#categories}}
-                            <p>{{name}}</p>
-                            {{#each ratings}}
-                            {{!-- rating for category --}}
-                            <p>{{rating}}</p>
-                            {{!-- comment about the rating --}}
-                            <p>{{about_rating}}</p>
-                            {{/each}}
-                          {{/categories}}
-
-
-                </div>
-            </div>
-        {{/each}}
-    </div>
->>>>>>> backend
