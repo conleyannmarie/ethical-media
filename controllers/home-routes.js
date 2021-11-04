@@ -111,12 +111,12 @@ router.get('/user/:id', (req, res) => {
 
 
 router.get('/login', (req, res) => {
-    
+
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
-   
+
     res.render('login');
 });
 
@@ -124,6 +124,16 @@ router.get('/signup', (req, res) => {
 
     res.render('signup');
 });
+
+// //create avatar
+// router.post('/', (req, res) => {
+//     let { username } = req.body.username;
+
+//     let avatar = `https://avatars.dicebear.com/api/:personas/${username}.svg?background=%230000ff`
+//     return res.json({ avatar })
+// })
+
+
 
 
 module.exports = router;

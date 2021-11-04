@@ -25,12 +25,12 @@ router.get('/', (req, res) => {
                 res.status(404).json({ message: 'No users found' });
                 return;
             }
-            
-            
+
+
             for (var i = 0; i < dbUserData.length; i++) {
                 var total_rating = 0
-                for(var j = 0; j <dbUserData[i].categories.length; j++){
-                   total_rating += dbUserData[i].categories[j].ratings[0].rating
+                for (var j = 0; j < dbUserData[i].categories.length; j++) {
+                    total_rating += dbUserData[i].categories[j].ratings[0].rating
                 }
                 var average_rating = total_rating / dbUserData[i].categories.length
                 console.log(average_rating)
@@ -40,10 +40,10 @@ router.get('/', (req, res) => {
                 //  }})
                 dbUserData[i].overall = average_rating
                 //dbUserData = await dbUserData[i].save()
-                
+
             }
-            
-         
+
+
             res.json(dbUserData);
         })
         .catch(err => {
@@ -74,6 +74,19 @@ router.post('/', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+
+
+// //create avatar
+// router.post('/', (req, res) => {
+//     let username = req.body.username;
+
+//     let avatar = `https://avatars.dicebear.com/api/:personas/${username}.svg?background=%230000ff`
+//     return res.json(avatar)
+// })
+
+
+
 
 //Login route
 router.post('/login', (req, res) => {
