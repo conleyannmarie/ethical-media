@@ -26,21 +26,21 @@ router.get('/', (req, res) => {
             }
 
 
-            // for (var i = 0; i < dbUserData.length; i++) {
-            //     var total_rating = 0
-            //     for (var j = 0; j < dbUserData[i].categories.length; j++) {
-            //         total_rating += dbUserData[i].categories[j].ratings[0].rating
-            //     }
-            //     var average_rating = total_rating / dbUserData[i].categories.length
-            //     console.log(average_rating)
+            for (var i = 0; i < dbUserData.length; i++) {
+                var total_rating = 0
+                for (var j = 0; j < dbUserData[i].categories.length; j++) {
+                    total_rating += dbUserData[i].categories[j].ratings[0].rating
+                }
+                var average_rating = total_rating / dbUserData[i].categories.length
+                console.log(average_rating)
 
-                // await User.update({overall: average_rating},{where: {
-                // id: dbUserData[i].id
-                //  }})
-                // dbUserData[i].overall = average_rating
-                //dbUserData = await dbUserData[i].save()
+                await User.update({overall: average_rating},{where: {
+                id: dbUserData[i].id
+                 }})
+                dbUserData[i].overall = average_rating
+                // dbUserData = await dbUserData[i].save()
 
-            // }
+            }
 
             const users = dbUserData.map(user => user.get({ plain: true }));
 
@@ -82,18 +82,18 @@ router.get('/user/:id', (req, res) => {
                 return;
             }
 
-            // var total_rating = 0
-            // if (!dbUserData.categories.length) {
-            //     var average_rating = 0
-            // } else {
-            //     for (var i = 0; i < dbUserData.categories.length; i++) {
-            //         total_rating += dbUserData.categories[i].ratings[0].rating
-            //     }
-            //     var average_rating = total_rating / dbUserData.categories.length
-            //     console.log(average_rating)
-            //     dbUserData.overall = average_rating
-            //     dbUserData = await dbUserData.save()
-            // }
+            var total_rating = 0
+            if (!dbUserData.categories.length) {
+                var average_rating = 0
+            } else {
+                for (var i = 0; i < dbUserData.categories.length; i++) {
+                    total_rating += dbUserData.categories[i].ratings[0].rating
+                }
+                var average_rating = total_rating / dbUserData.categories.length
+                console.log(average_rating)
+                dbUserData.overall = average_rating
+                // dbUserData = await dbUserData.save()
+            }
 
             const user = dbUserData.get({ plain: true });
 
