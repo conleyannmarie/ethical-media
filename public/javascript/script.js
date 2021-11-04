@@ -13,3 +13,8 @@ btn.onclick = () => {
   thanksmsg.style.display = "table";
   return false;
 };
+
+import { createAvatar } from "@dicebear/avatars";
+import * as style from "@dicebear/avatars-identicon-sprites";
+
+let svg = createAvatar(style, {});

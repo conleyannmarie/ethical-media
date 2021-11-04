@@ -1,14 +1,17 @@
- <div>
-     {{!-- This whole thing would go in a card --}}
-        {{#each users}}
-            <div class="row">
-                <div class="col-md-12 users">
-                    {{!-- user name --}}
-                    <h2><a class="link" href="/user/{{id}}">{{username}}</a></h2>
-                    {{!-- User overall ranking --}}
-                    <h2>{{overall}}</h2>
-                </div>
-            </div>
-        {{/each}}
-        
+<div>
+  {{! This whole thing would go in a card }}
+  {{#each users}}
+    <div class="row">
+      <div class="col-md-12 users">
+        <img
+          src="https://avataaars.io/?avatarStyle=Circle&topType=NoHair&accessoriesType=Blank&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
+        />
+        {{! user name }}
+        <h2>Username: <a class="link" href="/user/{{id}}">{{username}}</a></h2>
+        {{! User overall ranking }}
+        <h2>Overall Rating: {{overall}}</h2>
+      </div>
     </div>
+  {{/each}}
+
+</div>
