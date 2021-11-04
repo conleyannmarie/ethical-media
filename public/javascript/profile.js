@@ -1,14 +1,14 @@
-// var imgEl = document.getElementById('profilePic')
+async function profile() {
+    const response = await fetch('/profile-routes', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' }
+    });
 
-// function needs to go to user's profile by using the user's id that it clicked
+    if (response.ok) {
+        document.location.replace('/');
+    } else {
+        alert(response.statusText);
+    }
+}
 
-// async function ??
-
-// imgEl.addEventListener("click", function () {
-//     fetch('/api/users', {
-//         method: 'GET',
-
-//     })
-// })
-
-
+document.querySelector('#profile').addEventListener('click', profile);
