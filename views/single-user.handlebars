@@ -1,6 +1,7 @@
 <div>
-    {{#each this}}
+  {{#each this}}
     <div class="row">
+<<<<<<< HEAD
         <div class="col-md-12">
             {{!-- Main information of the page --}}
             <h2>{{username}}</h2>
@@ -50,3 +51,25 @@
 {{#if loggedIn}}
 <script src="/javascript/rate.js"></script>
 {{/if}}
+=======
+      <div class="col-md-12">
+        {{! Main information of the page }}
+        <h2>{{username}}</h2>
+        <h2>{{overall}}</h2>
+
+        {{! This is what would go in a card }}
+        {{#categories}}
+          <p>{{name}}</p>
+          {{#each ratings}}
+            {{! rating for category }}
+            <p>{{rating}}</p>
+            {{! comment about the rating }}
+            <p>{{about_rating}}</p>
+          {{/each}}
+        {{/categories}}
+
+      </div>
+    </div>
+  {{/each}}
+</div>
+>>>>>>> a4361c3eea1b56f5560eaafbd50c8eb1d42f3ef7
