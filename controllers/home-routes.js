@@ -25,13 +25,19 @@ router.get('/', (req, res) => {
                 return;
             }
 
-
+            
             for (var i = 0; i < dbUserData.length; i++) {
                 var total_rating = 0
                 for (var j = 0; j < dbUserData[i].categories.length; j++) {
+                   
                     total_rating += dbUserData[i].categories[j].ratings[0].rating
+                    
                 }
-                var average_rating = total_rating / dbUserData[i].categories.length
+
+                if(dbUserData[i].categories.length == 0){
+                    var average_rating = 0
+                } else {
+                var average_rating = total_rating / dbUserData[i].categories.length}
                 console.log(average_rating)
 
                 await User.update({overall: average_rating},{where: {
