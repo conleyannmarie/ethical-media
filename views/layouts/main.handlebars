@@ -7,8 +7,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../public/stylesheets/style.css" />
+
     <title>EthicalSocialMedia</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/secondary-style.css">
     <script src="https://kit.fontawesome.com/7f3eced345.js" crossorigin="anonymous"></script>
 </head>
 
@@ -21,6 +23,8 @@
     <nav>
         {{#if loggedIn}}
         <button id="logout" class="btn-no-style">logout</button>
+        <a href="/profile">Profile</a>
+
         {{else}}
         <a href="/login">login</a>
         <a href="/signup">Sign up</a>
@@ -33,6 +37,7 @@
 
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
+<script src="/javascript/profile.js"></script>
 {{/if}}
 
 <body>
@@ -42,12 +47,11 @@
             <!--Search Bar-->
             <div class="wrap">
                 <div class="search">
-                    <input type="text" class="searchBorder" placeholder="Search" />
-                    <button type="submit" class="searchButton">
-                        <i class="fas fa-search"></i>
-                    </button>
+                     <input id="searchbar" onkeyup="search_users()" type="text" name="search" placeholder="Search users..">
                 </div>
             </div>
+
+            
             <!--Search Bar End-->
 
             {{{ body }}}
@@ -56,7 +60,10 @@
         <!--Search Bar/Profiles End-->
 
     </main>
-    <script src="./script.js"></script>
+
+    <script src="/javascript/index.js"></script>
+    <script src="/javascript/search.js"></script>
+
 </body>
 
 </html>

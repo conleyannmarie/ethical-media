@@ -25,20 +25,26 @@ router.get('/', (req, res) => {
                 return;
             }
 
-
+            
             for (var i = 0; i < dbUserData.length; i++) {
                 var total_rating = 0
                 for (var j = 0; j < dbUserData[i].categories.length; j++) {
+                   
                     total_rating += dbUserData[i].categories[j].ratings[0].rating
+                    
                 }
-                var average_rating = total_rating / dbUserData[i].categories.length
+
+                if(dbUserData[i].categories.length == 0){
+                    var average_rating = 0
+                } else {
+                var average_rating = total_rating / dbUserData[i].categories.length}
                 console.log(average_rating)
 
-                // await User.update({overall: average_rating},{where: {
-                // id: dbUserData[i].id
-                //  }})
+                await User.update({overall: average_rating},{where: {
+                id: dbUserData[i].id
+                 }})
                 dbUserData[i].overall = average_rating
-                //dbUserData = await dbUserData[i].save()
+                // dbUserData = await dbUserData[i].save()
 
             }
 
@@ -92,7 +98,7 @@ router.get('/user/:id', (req, res) => {
                 var average_rating = total_rating / dbUserData.categories.length
                 console.log(average_rating)
                 dbUserData.overall = average_rating
-                dbUserData = await dbUserData.save()
+                // dbUserData = await dbUserData.save()
             }
 
             const user = dbUserData.get({ plain: true });
@@ -111,11 +117,12 @@ router.get('/user/:id', (req, res) => {
 
 
 router.get('/login', (req, res) => {
+    
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
-
+   
     res.render('login');
 });
 
@@ -123,5 +130,6 @@ router.get('/signup', (req, res) => {
 
     res.render('signup');
 });
+
 
 module.exports = router;
