@@ -4,7 +4,7 @@
 
 body {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-image: linear-gradient(#3f37c9, #4361ee, #4895ef, #4cc9f0);
+  background-image: linear-gradient(#3f37c9, #4361ee, #4895ef);
   justify-content: center;
 }
 
@@ -21,13 +21,14 @@ header {
       background-attachment: fixed;
       background-position: 80%;
       z-index: 9999;
+      margin: 0 auto;
 }
 
 header h1 {
   font-weight: bold;
   margin: 0;
   font-size: 36px;
-  color:#4cc9f0;
+  color:white;
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
@@ -127,16 +128,41 @@ input[type="text"]:focus{
 /* profile styles */
 
 .profiles {
-  width: 50%;
-  margin: auto;
   flex-direction: column;
   justify-content: center;
+  width: 50%;
+  border: 15px solid #3f37c9;
+  padding: 50px;
+  margin: auto;
 }
 
-.profiles h2 {
-  font-weight: none;
+article {
+  display: inline-block;
+  align-items: left;
+}
+
+.userInput {
+  display: inline-block;
+  align-items: left;
+  width: 100%;
+  border: 15px solid #3f37c9;
+  padding: 50px;
+  margin: auto;
+
+}
+
+h2 {
+  font-weight: lighter;
   margin: 0;
   font-size: 15px;
-  color:#560bad,;
+  color:white;
+  display: block;
+  width: 100%;
+}
 
+.userBox {
+  width: 100%;
+  border: 15px solid white;
+  padding: 50px;
+  margin: auto;
 }
