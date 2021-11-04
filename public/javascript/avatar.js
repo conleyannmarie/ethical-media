@@ -13,8 +13,8 @@
 //     })
 //     let data = await res.json();
 
-//     img.src = data.avatar;
-//     console.log(data.avatar)
+
+//     console.log(data)
 
 
 // }
