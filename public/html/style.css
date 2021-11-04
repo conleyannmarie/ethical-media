@@ -22,16 +22,28 @@ header {
       z-index: 9999;
       margin: 0 auto;
       text-align: center;
+      width: 100%;
+  border: 15px  #4895ef;
+  padding: 50px;
+  margin: auto;
+}
+
+header nav {
+  margin: 7px 0;
 }
 
 header h1 {
   font-weight: bold;
   margin: 0;
   font-size: 36px;
-  color:white;
-  margin-left: auto;
-  margin-right: auto;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   flex-direction: column;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
 }
 
 header nav {
@@ -41,7 +53,26 @@ header nav {
 header nav ul {
   /* display: flex;
   flex-wrap: wrap; */
-  /* flex-direction: column; */
+  justify-content: space-between;
+  list-style: none;
+}
+
+header nav ul li a {
+  padding: 10px 15px;
+  font-weight: lighter;
+  font-size: 1.55vw;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+header nav ul li a:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 15px;
+  text-shadow: none;
+}
+
+/* header nav ul {
+  
   margin-left: auto;
   margin-right: auto;
   list-style: none;
@@ -71,11 +102,11 @@ a.nav-link:hover {
 a.nav-link:active {
   color: white;
  text-decoration: none;
-}
+} */
 
 /* Search Bar styles */
 
-.wrap{
+/* .wrap{
   background-color:#fffbf8;
   padding:13px;
   width:335px;
@@ -145,7 +176,7 @@ button[type="submit"]{
 }
 input[type="text"]:focus{
   outline:0;
-}
+} */
 
 /* profile styles */
 
