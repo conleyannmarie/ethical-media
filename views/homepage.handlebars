@@ -1,1 +1,11 @@
-<h2>Hello</h2>
+ <div>
+        {{#each users}}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2><a class="link" href="/user/{{id}}">{{username}}</a></h2>
+                    <h2>{{overall}}</h2>
+                </div>
+            </div>
+        {{/each}}
+        
+    </div>

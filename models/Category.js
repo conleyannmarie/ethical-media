@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Category extends Model {}
+class Category extends Model { }
 
 Category.init(
   {
@@ -16,6 +16,14 @@ Category.init(
       allowNull: false,
       validate: {
         len: [1]
+      } 
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
       }
     }
   },

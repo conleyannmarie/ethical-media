@@ -1,31 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethical Social Media</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../public/stylesheets/style.css" />
+    <title>EthicalSocialMedia</title>
+    <script src="https://kit.fontawesome.com/7f3eced345.js" crossorigin="anonymous"></script>
 </head>
 
+
+<header>
+    <h1>
+        <a href="/">Ethical Social Media</a>
+        <!--Logo here--->
+    </h1>
+    <nav>
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        <a href="/signup">Sign up</a>
+        {{/if}}
+
+    </nav>
+</header>
+
+
+
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+
 <body>
-    <header>
-        <h1>
-            <a href="/">Ethical Social Media</a>
-        </h1>
-        <nav>
-            {{#if loggedIn}}
-            <button id="logout" class="btn-no-style">logout</button>
-            {{else}}
-            <a href="/login">login</a>
-            {{/if}}
-        </nav>
-    </header>
+    <main>
+        <!--Search Bar/Profiles-->
+        <section>
+            <!--Search Bar-->
+            <div class="wrap">
+                <div class="search">
+                    <input type="text" class="searchBorder" placeholder="Search" />
+                    <button type="submit" class="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <!--Search Bar End-->
 
-    {{{body}}}
+            {{{ body }}}
 
+        </section>
+        <!--Search Bar/Profiles End-->
 
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
+    </main>
+    <script src="./script.js"></script>
 </body>
+
+</html>

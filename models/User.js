@@ -26,7 +26,11 @@ User.init(
             validate: {
                 len: [3]
             }
-        }
+        },
+        overall: {
+            type: DataTypes.DECIMAL,
+            allowNull: true,
+        },
     }, {
     hooks: {
         // set up beforeCreate lifecycle "hook" functionality
@@ -35,10 +39,10 @@ User.init(
             return newUserData;
         },
 
-        async beforeUpdate(updatedUserData) {
-            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-            return updatedUserData;
-        }
+        // async beforeUpdate(updatedUserData) {
+        //     updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        //     return updatedUserData;
+        // }
     },
     sequelize,
     timestamps: false,
