@@ -13,3 +13,24 @@ btn.onclick = () => {
   thanksmsg.style.display = "table";
   return false;
 };
+
+// Generate avatar
+const name = document.querySelector(".username");
+const img = document.querySelector(".img");
+const btnAvatar = document.querySelector(".btn-avatar");
+
+btnAvatar.onclick = async (e) => {
+  e.preventDefault();
+
+  let res = await fetch("/api/users", {
+    method: "post",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ name: name.value }),
+  });
+  let data = await res.json();
+
+  img.src = data.json();
+};
+// Generate avatar end
