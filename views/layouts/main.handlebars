@@ -23,6 +23,8 @@
     <nav>
         {{#if loggedIn}}
         <button id="logout" class="btn-no-style">logout</button>
+        <a href="/profile">Profile</a>
+
         {{else}}
         <a href="/login">login</a>
         <a href="/signup">Sign up</a>
@@ -35,6 +37,7 @@
 
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
+<script src="/javascript/profile.js"></script>
 {{/if}}
 
 <body>
@@ -44,7 +47,7 @@
             <!--Search Bar-->
             <div class="wrap">
                 <div class="search">
-                    <input type="text" class="searchBorder" placeholder="Search" />
+                    <input type="text" class="searchBorder" placeholder="Search" id="searchBar" />
                     <button type="submit" class="searchButton">
                         <i class="fas fa-search"></i>
                     </button>
@@ -58,7 +61,12 @@
         <!--Search Bar/Profiles End-->
 
     </main>
+<<<<<<< HEAD
     
+=======
+
+    <script src="/javascript/index.js"></script>
+>>>>>>> backend
 </body>
 
 </html>

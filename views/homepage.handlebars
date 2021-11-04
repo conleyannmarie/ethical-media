@@ -1,8 +1,11 @@
  <div>
+     {{!-- This whole thing would go in a card --}}
         {{#each users}}
             <div class="row">
                 <div class="col-md-12">
+                    {{!-- user name --}}
                     <h2><a class="link" href="/user/{{id}}">{{username}}</a></h2>
+                    {{!-- User overall ranking --}}
                     <h2>{{overall}}</h2>
                 </div>
             </div>
