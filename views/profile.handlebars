@@ -1,4 +1,4 @@
-<section>
+{{!-- <section>
     <!-- Profile -->
     <div>
         <article>
@@ -137,4 +137,24 @@
 <script src="./script.js"></script>
 </body>
 
-</html>
+</html> --}}
+
+  <div>
+        {{#each this}}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{username}}</h2>
+                    <h2>{{overall}}</h2>
+                        {{#categories}}
+                            <p>{{name}}</p>
+                            {{#each ratings}}
+                            <p>{{rating}}</p>
+                            <p>{{about_rating}}</p>
+                            {{/each}}
+                        {{/categories}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+ 
