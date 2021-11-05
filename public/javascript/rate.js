@@ -25,17 +25,18 @@ async function rateFormHandler(event) {
         if (response.ok) {
 
 
-            fetch('/api/categories')
+             fetch('/api/categories')
                 .then(function (response) {
                     if (response.ok) {
                         response.json()
-                            .then(data =>
-                                postRating(data, about_rating, rated_by,rating)
+                            .then(async data =>{
+                              await postRating(data, about_rating, rated_by,rating)
+                               document.location.reload()}
                             )
                     }
                 })
 
-            document.location.reload();
+            
         } else {
             alert(response.statusText);
         }
@@ -44,10 +45,10 @@ async function rateFormHandler(event) {
 
 document.querySelector('.rating-form').addEventListener('submit', rateFormHandler);
 
-function postRating(data,about_rating, rated_by, rating) {
+async function postRating(data,about_rating, rated_by, rating) {
 
     let rating_for = data.length
-    const response2 = fetch('/api/ratings', {
+    await fetch('/api/ratings', {
         method: 'POST',
         body: JSON.stringify({
             rated_by,
@@ -60,5 +61,4 @@ function postRating(data,about_rating, rated_by, rating) {
         }
     });
 
-    document.location.reload();
 }
