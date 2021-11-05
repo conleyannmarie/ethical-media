@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-image: linear-gradient(#3f37c9, #4361ee, #4895ef);
+  justify-content: center;
+}
+
+/* fonts: #f72585, #b5179e, #7209b7, #560bad, #480cab, #380ca3, */
+/* Header styles */
+header {
+      padding: 20px 35px;
+      justify-content: space-between;
+      /* position: sticky;
+      position: -webkit-sticky; */
+      top: 0;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: 80%;
+      z-index: 9999;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+  border: 15px  #4895ef;
+  padding: 50px;
+  margin: auto;
+}
+
+.logo {
+  width:50%;
+}
+
+header nav {
+  margin: 7px 0;
+}
+
+header h1 {
+  font-weight: bold;
+  margin: 0;
+  font-size: 36px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+header nav {
+  margin: 7px 0;
+}
+
+header nav ul {
+  /* display: flex;
+  flex-wrap: wrap; */
+  justify-content: space-between;
+  list-style: none;
+}
+
+header nav ul li a {
+  padding: 10px 15px;
+  font-weight: lighter;
+  font-size: 1.55vw;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+header nav ul li a:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 15px;
+  text-shadow: none;
+}
+
+/* header nav ul {
+ /* comment test */
+
+/* profile styles */
+
+.profiles {
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  border: 15px solid #3f37c9;
+  padding: 50px;
+  margin: auto;
+}
+
+article {
+  display: inline-block;
+  align-items: left;
+}
+
+.userInput {
+  display: inline-block;
+  align-items: left;
+  width: 100%;
+  border: 15px solid #3f37c9;
+  padding: 50px;
+  margin: auto;
+}
+
+h2 {
+  font-weight: lighter;
+  margin: 0;
+  font-size: 18px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.userBox {
+  width: 100%;
+  border: 15px solid white;
+  padding: 50px;
+  margin: auto;
+}
+
+/* cards */
+.row {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.row:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.users {
+  padding: 2px 16px;
+}
