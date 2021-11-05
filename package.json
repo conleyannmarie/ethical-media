@@ -20,6 +20,7 @@
   "homepage": "https://github.com/conleyannmarie/ethical-media#readme",
   "dependencies": {
     "@dicebear/avatars": "^4.10.0",
+    "@dicebear/avatars-identicon-sprites": "^4.10.0",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",

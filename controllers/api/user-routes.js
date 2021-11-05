@@ -153,7 +153,7 @@ router.get('/:id', (req, res) => {
                 var average_rating = total_rating / dbUserData.categories.length
                 console.log(average_rating)
                 dbUserData.overall = average_rating
-                dbUserData = await dbUserData.save()
+               // dbUserData = await dbUserData.save()
             }
             // User.update({overall: average_rating},{where: {
             //     id: req.params.id

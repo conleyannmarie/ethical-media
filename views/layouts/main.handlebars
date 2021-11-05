@@ -48,12 +48,11 @@
             <!--Search Bar-->
             <div class="wrap">
                 <div class="search">
-                    <input type="text" class="searchBorder" placeholder="Search" id="searchBar" />
-                    <button type=" submit" class="searchButton">
-                        <i class=" fas fa-search"></i>
-                    </button>
+                     <input id="searchbar" onkeyup="search_users()" type="text" name="search" placeholder="Search users..">
                 </div>
             </div>
+
+            
             <!--Search Bar End-->
 
             {{{ body }}}
@@ -64,6 +63,8 @@
     </main>
 
     <script src="/javascript/index.js"></script>
+    <script src="/javascript/search.js"></script>
+
 </body>
 
 </html>
