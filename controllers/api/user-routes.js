@@ -57,7 +57,8 @@ router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         password: req.body.password,
-        overall: req.body.overall
+        overall: req.body.overall,
+        imgUrl: `https://avatars.dicebear.com/api/personas/${req.body.username}.svg`
     })
 
         .then(dbUserData => {
@@ -153,7 +154,7 @@ router.get('/:id', (req, res) => {
                 var average_rating = total_rating / dbUserData.categories.length
                 console.log(average_rating)
                 dbUserData.overall = average_rating
-               // dbUserData = await dbUserData.save()
+                // dbUserData = await dbUserData.save()
             }
             // User.update({overall: average_rating},{where: {
             //     id: req.params.id

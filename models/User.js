@@ -31,6 +31,10 @@ User.init(
             type: DataTypes.DECIMAL,
             allowNull: true,
         },
+        imgUrl: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     }, {
     hooks: {
         // set up beforeCreate lifecycle "hook" functionality
