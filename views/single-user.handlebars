@@ -1,52 +1,68 @@
 <div>
   {{#each this}}
     <div class="row">
-        <div class="col-md-12">
-            {{!-- Main information of the page --}}
-            <h2>{{username}}</h2>
-            <h2>{{overall}}</h2>
+      <div class="col-md-12">
 
-            {{!-- This is what would go in a card --}}
+        {{! Main information of the page }}
+        <h2>Username: {{username}}</h2>
+        <h2>Overall: {{overall}}</h2>
+
+        <div class="card">
+          <div class="container">
+            {{! This is what would go in a card }}
             {{#categories}}
-            <p>{{name}}</p>
-            {{#each ratings}}
-            {{!-- rating for category --}}
-            <p>{{rating}}</p>
-            {{!-- comment about the rating --}}
-            <p>{{about_rating}}</p>
-            {{/each}}
+              <p>Category Name: {{name}}</p>
+              {{#each ratings}}
+                {{! rating for category }}
+                <p>Rating: {{rating}}</p>
+                {{! comment about the rating }}
+                <p>Rating Comment: {{about_rating}}</p>
+              {{/each}}
             {{/categories}}
-
-
+          </div>
         </div>
+      </div>
     </div>
-    {{/each}}
+  {{/each}}
 </div>
 
 {{#if loggedIn}}
-<form class="rating-form">
+  <form class="rating-form">
     <div>
-        <label for="category-name">Category</label>
-        <input type="text" id="category-name" name="category-name" />
+      <label for="category-name">Category</label>
+      <input type="text" id="category-name" name="category-name" />
+    </div>
+
+    <div class="star-rating">
+      {{!-- <label for="rating">Rating</label>
+      <input type="number" id="rating" name="rating" /> --}}
+       <h3>Rating</h3>
+          <div class="star-input">
+            <input type="radio" name="rating" id="rating-5" />
+            <label for="rating-5" class="fas fa-star"></label>
+            <input type="radio" name="rating" id="rating-4" />
+            <label for="rating-4" class="fas fa-star"></label>
+            <input type="radio" name="rating" id="rating-3" />
+            <label for="rating-3" class="fas fa-star"></label>
+            <input type="radio" name="rating" id="rating-2" />
+            <label for="rating-2" class="fas fa-star"></label>
+            <input type="radio" name="rating" id="rating-1" />
+            <label for="rating-1" class="fas fa-star"></label>
+          </div>
+        </div>
     </div>
 
     <div>
-        <label for="rating">Rating</label>
-        <input type="number" id="rating" name="rating" />
+      <label for="rating-body">Comment</label>
+      <textarea name="rating-body"></textarea>
     </div>
 
     <div>
-        <label for="rating-body">Comment</label>
-        <textarea name="rating-body"></textarea>
+      <button type="submit">add rating</button>
     </div>
-
-    <div>
-        <button type="submit">add rating</button>
-    </div>
-</form>
+  </form>
 {{/if}}
 
-
 {{#if loggedIn}}
-<script src="/javascript/rate.js"></script>
+  <script src="/javascript/rate.js"></script>
 {{/if}}
