@@ -1,16 +1,16 @@
 <div>
-  {{#each this}}
+
     <div class="row">
       <div class="col-md-12">
 
         {{! Main information of the page }}
-        <h2>Username: {{username}}</h2>
-        <h2>Overall: {{overall}}</h2>
+        <h2>{{user.username}}</h2>
+        <h2>{{user.overall}}</h2>
 
         <div class="card">
           <div class="container">
             {{! This is what would go in a card }}
-            {{#categories}}
+            {{#each user.categories}}
               <p>Category Name: {{name}}</p>
               {{#each ratings}}
                 {{! rating for category }}
@@ -18,12 +18,11 @@
                 {{! comment about the rating }}
                 <p>Rating Comment: {{about_rating}}</p>
               {{/each}}
-            {{/categories}}
+            {{/each}}
           </div>
         </div>
       </div>
     </div>
-  {{/each}}
 </div>
 
 {{#if loggedIn}}
