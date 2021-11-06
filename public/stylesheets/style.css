@@ -125,7 +125,7 @@ p {
   margin: auto;
 }
 
-/* cards */
+/* Cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -141,3 +141,68 @@ p {
 .container {
   padding: 2px 16px;
 }
+/* Cards End */
+
+/* Star CSS */
+.star-rating input {
+  display: none;
+}
+
+.star-rating {
+  /* margin: 50px auto; */
+  display: table;
+  width: 350px;
+}
+
+.star-rating label {
+  padding: 10px;
+  float: right;
+  font-size: 44px;
+  color: #eee;
+}
+
+.star-rating input:not(:checked) ~ label:hover,
+.star-rating input:not(:checked) ~ label:hover ~ label {
+  color: #ffc107;
+}
+
+.star-rating input:checked ~ label {
+  color: #ffc107;
+}
+
+.star-rating form .rating-reaction:before {
+  width: 100%;
+  float: left;
+  color: #ffc107;
+}
+
+.star-rating input:checked ~ form {
+  border-top: 1px solid #ddd;
+  width: 100%;
+  padding-top: 15px;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+.star-rating form .rating-reaction {
+  font-size: 24px;
+  float: left;
+  text-transform: capitalize;
+}
+
+.star-rating form .submit-rating {
+  border: none;
+  outline: none;
+  /*submit button background here if we want */
+  color: #ffc107;
+  font-size: 18px;
+  border-radius: 4px;
+  padding: 5px 15px;
+  cursor: pointer;
+  float: right;
+}
+
+form .submit-rating:hover {
+  background-color: #333;
+}
+/* Star CSS End */
