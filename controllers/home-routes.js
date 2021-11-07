@@ -11,10 +11,10 @@ router.get("/", (req, res) => {
       "id",
       "username",
       "imgUrl",
-      //   [
-      //     Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
-      //     "overall",
-      //   ],
+        [
+          Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
+          "overall",
+        ],
     ],
     include: [
       {
@@ -83,13 +83,11 @@ router.get("/user/:id", (req, res) => {
       "id",
       "username",
       "imgUrl",
-      [
-        Sequelize.fn("AVG", Sequelize.col("categories.ratings.rating")),
-        "overall",
-      ],
+        // [
+        //   Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
+        //   "overall",
+        // ],
     ],
-    // attributes:
-    //     { exclude: ['password'] },
     include: [
       {
         model: Category,
@@ -108,23 +106,24 @@ router.get("/user/:id", (req, res) => {
         return;
       }
 
-      // var total_rating = 0
-      // if (!dbUserData.categories.length) {
-      //     var average_rating = 0
-      // } else {
-      //     for (var i = 0; i < dbUserData.categories.length; i++) {
-      //         total_rating += dbUserData.categories[i].ratings[0].rating
-      //     }
-      //     var average_rating = total_rating / dbUserData.categories.length
-      //     console.log(average_rating)
-      //     dbUserData.overall = average_rating
-      //     // dbUserData = await dbUserData.save()
-      // }
-
+      var total_rating = 0
+      if (!dbUserData.categories.length) {
+          var average_rating = 0
+      } else {
+          for (var i = 0; i < dbUserData.categories.length; i++) {
+              total_rating += dbUserData.categories[i].ratings[0].rating
+          }
+          var average_rating = total_rating / dbUserData.categories.length
+          console.log(average_rating)
+          dbUserData.overall = average_rating
+          // dbUserData = await dbUserData.save()
+      }
+      
       const user = dbUserData.get({ plain: true });
 
       res.render("single-user", {
         user,
+        average_rating,
         loggedIn: req.session.loggedIn,
       });
       console.log(user);
