@@ -11,10 +11,10 @@ router.get("/", (req, res) => {
       "id",
       "username",
       "imgUrl",
-        [
-          Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
-          "overall",
-        ],
+      // [
+      //   Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
+      //   "overall",
+      // ],
     ],
     include: [
       {
@@ -34,30 +34,30 @@ router.get("/", (req, res) => {
         return;
       }
 
-      //   for (var i = 0; i < dbUserData.length; i++) {
-      //     var total_rating = 0;
-      //     for (var j = 0; j < dbUserData[i].categories.length; j++) {
-      //       total_rating += dbUserData[i].categories[j].ratings[0].rating;
-      //     }
-
-      //     if (dbUserData[i].categories.length == 0) {
-      //       var average_rating = 0;
-      //     } else {
-      //       var average_rating = total_rating / dbUserData[i].categories.length;
-      //     }
-      //     console.log(average_rating);
-
-      //     await User.update(
-      //       { overall: average_rating },
-      //       {
-      //         where: {
-      //           id: dbUserData[i].id,
-      //         },
-      //       }
-      //     );
-      //     dbUserData[i].overall = average_rating;
-      //     // dbUserData = await dbUserData[i].save()
+      // for (var i = 0; i < dbUserData.length; i++) {
+      //   var total_rating = 0;
+      //   for (var j = 0; j < dbUserData[i].categories.length; j++) {
+      //     total_rating += dbUserData[i].categories[j].ratings[0].rating;
       //   }
+
+      //   if (dbUserData[i].categories.length == 0) {
+      //     var average_rating = 0;
+      //   } else {
+      //     var average_rating = total_rating / dbUserData[i].categories.length;
+      //   }
+      //   console.log(average_rating);
+
+      //   await User.update(
+      //     { overall: average_rating },
+      //     {
+      //       where: {
+      //         id: dbUserData[i].id,
+      //       },
+      //     }
+      //   );
+      //   dbUserData[i].overall = average_rating;
+      //   // dbUserData = await dbUserData[i].save()
+      // }
 
       const users = dbUserData.map((user) => user.get({ plain: true }));
 
@@ -83,11 +83,13 @@ router.get("/user/:id", (req, res) => {
       "id",
       "username",
       "imgUrl",
-        // [
-        //   Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
-        //   "overall",
-        // ],
+      // [
+      //   Sequelize.fn("AVG", Sequelize.col("categories.ratings.rating")),
+      //   "overall",
+      // ],
     ],
+    // attributes:
+    //     { exclude: ['password'] },
     include: [
       {
         model: Category,
@@ -106,24 +108,23 @@ router.get("/user/:id", (req, res) => {
         return;
       }
 
-      var total_rating = 0
+      var total_rating = 0;
       if (!dbUserData.categories.length) {
-          var average_rating = 0
+        var average_rating = 0;
       } else {
-          for (var i = 0; i < dbUserData.categories.length; i++) {
-              total_rating += dbUserData.categories[i].ratings[0].rating
-          }
-          var average_rating = total_rating / dbUserData.categories.length
-          console.log(average_rating)
-          dbUserData.overall = average_rating
-          // dbUserData = await dbUserData.save()
+        for (var i = 0; i < dbUserData.categories.length; i++) {
+          total_rating += dbUserData.categories[i].ratings[0].rating;
+        }
+        var average_rating = total_rating / dbUserData.categories.length;
+        console.log(average_rating);
+        dbUserData.overall = average_rating;
+        // dbUserData = await dbUserData.save()
       }
-      
+
       const user = dbUserData.get({ plain: true });
 
       res.render("single-user", {
         user,
-        average_rating,
         loggedIn: req.session.loggedIn,
       });
       console.log(user);

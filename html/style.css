@@ -101,9 +101,13 @@ a.nav-link:active {
   color: white;
   text-decoration: none;
 }
+.wrap {
+  display: flex;
+  justify-content: center;
+}
 
 /* Search Bar styles */
-.wrap {
+/* .wrap {
   background-color: #fffbf8;
   padding: 13px;
   width: 335px;
@@ -158,10 +162,7 @@ button[type="submit"] {
 }
 input[type="text"]:focus {
   outline: 0;
-}
-
-/* header nav ul {
- /* comment test */
+} */
 
 /* profile styles */
 
