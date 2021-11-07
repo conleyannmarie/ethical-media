@@ -1,27 +1,16 @@
 const router = require("express").Router();
 const { Rating, User, Category } = require("../models");
 const withAuth = require("../utils/auth");
-const Sequelize = require("sequelize");
 
 router.get("/", (req, res) => {
   User.findOne({
     where: {
       id: req.session.user_id,
     },
-    attributes: [
-      //   { exclude: ["password"] },
-      "id",
-      "username",
-      "imgUrl",
-      [
-        Sequelize.fn("AVG", Sequelize.col("categories.ratings.rating")),
-        "overall",
-      ],
-    ],
+    attributes: [{ exclude: ["password"] }],
     include: [
       {
         model: Category,
-        as: "categories",
         attributes: ["name"],
         include: {
           model: Rating,
@@ -37,18 +26,18 @@ router.get("/", (req, res) => {
         return;
       }
 
-      // var total_rating = 0
-      // if (!dbUserData.categories.length) {
-      //     var average_rating = 0
-      // } else {
-      //     for (var i = 0; i < dbUserData.categories.length; i++) {
-      //         total_rating += dbUserData.categories[i].ratings[0].rating
-      //     }
-      //     var average_rating = total_rating / dbUserData.categories.length
-      //     console.log(average_rating)
-      //     dbUserData.overall = average_rating
-      //     dbUserData = await dbUserData.save()
-      // }
+      var total_rating = 0;
+      if (!dbUserData.categories.length) {
+        var average_rating = 0;
+      } else {
+        for (var i = 0; i < dbUserData.categories.length; i++) {
+          total_rating += dbUserData.categories[i].ratings[0].rating;
+        }
+        var average_rating = total_rating / dbUserData.categories.length;
+        console.log(average_rating);
+        dbUserData.overall = average_rating;
+        dbUserData = await dbUserData.save();
+      }
 
       const user = dbUserData.get({ plain: true });
 

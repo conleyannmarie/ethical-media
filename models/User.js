@@ -27,6 +27,10 @@ User.init(
         len: [3],
       },
     },
+    overall: {
+      type: DataTypes.DECIMAL,
+      allowNull: true,
+    },
     imgUrl: {
       type: DataTypes.STRING,
       allowNull: false,

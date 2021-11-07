@@ -1,21 +1,28 @@
 <div class="wrap">
-  <div class="search">
-    <input id="searchbar" onkeyup="search_users()" type="text" name="search" placeholder="Search users.." />
-  </div>
+
 </div>
 
 <div>
+  <div class="search">
+    <input
+      id="searchbar"
+      onkeyup="search_users()"
+      type="text"
+      name="search"
+      placeholder="Search users.."
+    />
+  </div>
   {{! This whole thing would go in a card }}
   {{#each users}}
-  <div class="row card">
-    <div class="col-md-12 users container">
-      <img src="{{imgUrl}}" />
-      {{! user name }}
-      <h2>Username: <a class="link" href="/user/{{id}}">{{username}}</a></h2>
-      {{! User overall ranking }}
-      <h2>Overall Rating: {{overall}}</h2>
+    <div class="row card">
+      <div class="col-md-12 users container">
+        <img src="{{imgUrl}}" />
+        {{! user name }}
+        <h2>Username: <a class="link" href="/user/{{id}}">{{username}}</a></h2>
+        {{! User overall ranking }}
+        <h2>Overall Rating: {{overall}}</h2>
+      </div>
     </div>
-  </div>
   {{/each}}
 
 </div>

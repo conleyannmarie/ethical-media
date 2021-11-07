@@ -1,21 +1,10 @@
 const router = require("express").Router();
 const { Rating, User, Category } = require("../models");
-const Sequelize = require("sequelize");
 
 //returns all users
 router.get("/", (req, res) => {
   User.findAll({
-    // attributes: { exclude: ["password"] },
-    attributes: [
-      //   { exclude: ["password"] },
-      "id",
-      "username",
-      "imgUrl",
-      // [
-      //   Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
-      //   "overall",
-      // ],
-    ],
+    attributes: { exclude: ["password"] },
     include: [
       {
         model: Category,
@@ -34,30 +23,30 @@ router.get("/", (req, res) => {
         return;
       }
 
-      //   for (var i = 0; i < dbUserData.length; i++) {
-      //     var total_rating = 0;
-      //     for (var j = 0; j < dbUserData[i].categories.length; j++) {
-      //       total_rating += dbUserData[i].categories[j].ratings[0].rating;
-      //     }
+      for (var i = 0; i < dbUserData.length; i++) {
+        var total_rating = 0;
+        for (var j = 0; j < dbUserData[i].categories.length; j++) {
+          total_rating += dbUserData[i].categories[j].ratings[0].rating;
+        }
 
-      //     if (dbUserData[i].categories.length == 0) {
-      //       var average_rating = 0;
-      //     } else {
-      //       var average_rating = total_rating / dbUserData[i].categories.length;
-      //     }
-      //     console.log(average_rating);
+        if (dbUserData[i].categories.length == 0) {
+          var average_rating = 0;
+        } else {
+          var average_rating = total_rating / dbUserData[i].categories.length;
+        }
+        console.log(average_rating);
 
-      //     await User.update(
-      //       { overall: average_rating },
-      //       {
-      //         where: {
-      //           id: dbUserData[i].id,
-      //         },
-      //       }
-      //     );
-      //     dbUserData[i].overall = average_rating;
-      //     // dbUserData = await dbUserData[i].save()
-      //   }
+        await User.update(
+          { overall: average_rating },
+          {
+            where: {
+              id: dbUserData[i].id,
+            },
+          }
+        );
+        dbUserData[i].overall = average_rating;
+        // dbUserData = await dbUserData[i].save()
+      }
 
       const users = dbUserData.map((user) => user.get({ plain: true }));
       console.log(users);
@@ -79,18 +68,7 @@ router.get("/user/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: [
-      //   { exclude: ["password"] },
-      "id",
-      "username",
-      "imgUrl",
-      [
-        Sequelize.fn("AVG", Sequelize.col("categories.ratings.rating")),
-        "overall",
-      ],
-    ],
-    // attributes:
-    //     { exclude: ['password'] },
+    attributes: [{ exclude: ["password"] }],
     include: [
       {
         model: Category,
@@ -109,18 +87,18 @@ router.get("/user/:id", (req, res) => {
         return;
       }
 
-      // var total_rating = 0
-      // if (!dbUserData.categories.length) {
-      //     var average_rating = 0
-      // } else {
-      //     for (var i = 0; i < dbUserData.categories.length; i++) {
-      //         total_rating += dbUserData.categories[i].ratings[0].rating
-      //     }
-      //     var average_rating = total_rating / dbUserData.categories.length
-      //     console.log(average_rating)
-      //     dbUserData.overall = average_rating
-      //     // dbUserData = await dbUserData.save()
-      // }
+      var total_rating = 0;
+      if (!dbUserData.categories.length) {
+        var average_rating = 0;
+      } else {
+        for (var i = 0; i < dbUserData.categories.length; i++) {
+          total_rating += dbUserData.categories[i].ratings[0].rating;
+        }
+        var average_rating = total_rating / dbUserData.categories.length;
+        console.log(average_rating);
+        dbUserData.overall = average_rating;
+        // dbUserData = await dbUserData.save()
+      }
 
       const user = dbUserData.get({ plain: true });
 
@@ -148,13 +126,5 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
-
-// //create avatar
-// router.post('/', (req, res) => {
-//     let { username } = req.body.username;
-
-//     let avatar = `https://avatars.dicebear.com/api/:personas/${username}.svg?background=%230000ff`
-//     return res.json({ avatar })
-// })
 
 module.exports = router;
