@@ -34,30 +34,30 @@ router.get("/", (req, res) => {
         return;
       }
 
-      // for (var i = 0; i < dbUserData.length; i++) {
-      //   var total_rating = 0;
-      //   for (var j = 0; j < dbUserData[i].categories.length; j++) {
-      //     total_rating += dbUserData[i].categories[j].ratings[0].rating;
-      //   }
+      for (var i = 0; i < dbUserData.length; i++) {
+        var total_rating = 0;
+        for (var j = 0; j < dbUserData[i].categories.length; j++) {
+          total_rating += dbUserData[i].categories[j].ratings[0].rating;
+        }
 
-      //   if (dbUserData[i].categories.length == 0) {
-      //     var average_rating = 0;
-      //   } else {
-      //     var average_rating = total_rating / dbUserData[i].categories.length;
-      //   }
-      //   console.log(average_rating);
+        if (dbUserData[i].categories.length == 0) {
+          var average_rating = 0;
+        } else {
+          var average_rating = total_rating / dbUserData[i].categories.length;
+        }
+        console.log(average_rating);
 
-      //   await User.update(
-      //     { overall: average_rating },
-      //     {
-      //       where: {
-      //         id: dbUserData[i].id,
-      //       },
-      //     }
-      //   );
-      //   dbUserData[i].overall = average_rating;
-      //   // dbUserData = await dbUserData[i].save()
-      // }
+        await User.update(
+          { overall: average_rating },
+          {
+            where: {
+              id: dbUserData[i].id,
+            },
+          }
+        );
+        dbUserData[i].overall = average_rating;
+        // dbUserData = await dbUserData[i].save()
+      }
 
       const users = dbUserData.map((user) => user.get({ plain: true }));
 
