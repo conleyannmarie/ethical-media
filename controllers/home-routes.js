@@ -11,10 +11,10 @@ router.get("/", (req, res) => {
       "id",
       "username",
       "imgUrl",
-      //   [
-      //     Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
-      //     "overall",
-      //   ],
+      // [
+      //   Sequelize.fn("avg", Sequelize.col("categories.ratings.rating")),
+      //   "overall",
+      // ],
     ],
     include: [
       {
@@ -60,6 +60,7 @@ router.get("/", (req, res) => {
       //   }
 
       const users = dbUserData.map((user) => user.get({ plain: true }));
+      console.log(users);
 
       res.render("homepage", {
         users,
