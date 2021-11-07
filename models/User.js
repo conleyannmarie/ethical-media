@@ -31,6 +31,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    overall: {
+      type: DataTypes.DECIMAL,
+      allowNull: true,
+  },
   },
   {
     hooks: {
