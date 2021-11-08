@@ -139,20 +139,23 @@
 
 </html> }}
 
-<div>
-  {{#each this}}
-    <div class="row">
-      <div class="col-md-12">
-        <h2>{{username}}</h2>
-        <h2>{{overall}}</h2>
-        {{#categories}}
-          <p>{{name}}</p>
-          {{#each ratings}}
-            <p>{{rating}}</p>
-            <p>{{about_rating}}</p>
-          {{/each}}
-        {{/categories}}
-      </div>
+<div class="final-profile">
+  <div class="profile-amounts">
+    <h2>UserName {{user.username}}</h2>
+    <h2>Overall Rating: {{user.overall}}</h2>
+  </div>
+
+  <div class="row profiles">
+    <div class="col-md-12 userBox">
+
+      {{#each user.categories}}
+        <p>Category: {{name}}</p>
+        {{#each ratings}}
+          <p>Rating: {{rating}}</p>
+          <p>Rating Comment: {{about_rating}}</p>
+        {{/each}}
+      {{/each}}
     </div>
-  {{/each}}
+  </div>
+
 </div>
