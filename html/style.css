@@ -101,10 +101,6 @@ a.nav-link:active {
   color: white;
   text-decoration: none;
 }
-.wrap {
-  display: flex;
-  justify-content: center;
-}
 
 /* Search Bar styles */
 /* .wrap {

@@ -10,19 +10,18 @@
 
     <title>EthicalSocialMedia</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    {{!-- <link rel="stylesheet" href="/stylesheets/secondary-style.css"> --}}
     <script src="https://kit.fontawesome.com/7f3eced345.js" crossorigin="anonymous"></script>
 </head>
 
 
 <header>
     <h1>
-        <a href="/">Ethical Social Media</a>
-        <!--Logo here--->
+        <a href="/"><img class="logo" src="/stylesheets/logo.png" /></a>
+        
     </h1>
     <nav>
         {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">logout</button>
+        <button id="logout" class="btn-no-style">Logout</button>
         <a href="/profile">Profile</a>
 
         {{else}}
@@ -37,7 +36,6 @@
 
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
-<script src="/javascript/profile.js"></script>
 {{/if}}
 
 <body>
