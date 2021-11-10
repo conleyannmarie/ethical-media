@@ -22,6 +22,7 @@ This application makes use of MYSQL2 and a few node packages. Be sure to add a .
 ## Credits
 
 ## License
+N/A
 
  
 
